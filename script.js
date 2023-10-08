@@ -1,30 +1,31 @@
-console.log("Hello world!")
+const arr = [1,2,3,4,5]
 
-//adok egy esemény figyelőt a böngészőnek, ami figyeli, hogy mikor töltődik be az oldal. utána futtassa le a dom manipulációt
-
-function domManipulation(){
-    const rootElement = document.querySelector("#root")
-    console.log(rootElement)
-    rootElement.innerHTML = "This is done by dom manipulation"
+function returnDouble(number){
+    return number * 2
 }
 
-function logClick(){
-    console.log('clicked')
+const returnDouble2 = (number) => {
+    return number * 2
+}
+ //arrow function, el lehet hagyni a zárójelet és egy sorba lehet írni, ha egy paraméter van és csak return van benne 
+const returnDouble3 = number => number * 2
+
+console.log( returnDouble3(25))
+
+
+for (let i = 0; i < arr.length; i++){
+    console.log(returnDouble2(arr[i]))
 }
 
-let tickCount = 0
 
-function logTick(){
-    console.log(`tick ${tickCount}`)
-    tickCount++
-}
+// metódus, ami az arrayen "él", de élhet ilyen a stringen, objecten... is, mi is tudunk majd ilyet csinálni --> type arr._____
 
-window.addEventListener('load', domManipulation)
+function logDouble(number){
+    console.log(number * 2)
+} // ebbe a fv-be van kiszervezve a logika, és ezt lehet meghivni másik fv-ben
 
-window.addEventListener('click', logClick)
+arr.forEach(logDouble)
 
-// window.addEventListener('click', logTick)
- 
 
-window.setInterval(logTick, 1000) //másodpercenként lefuttatja a logTick fv-t
-
+// in line megadom a fv-t
+arr.forEach(element => console.log(element * 2))
